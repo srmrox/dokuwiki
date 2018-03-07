@@ -6,26 +6,12 @@ php:
   - "7.1"
   - "7.0"
   - "5.6"
+  - "hhvm-3.24"
 env:
   - DISABLE_FUNCTIONS=
   - DISABLE_FUNCTIONS="gzopen"
 matrix:
   fast_finish: true
-  include:
-    - php: hhvm-3.24
-      sudo: true
-      dist: trusty
-      group: edge # until the next update
-      addons:
-        apt:
-          packages:
-            - mysql-server-5.6
-            - mysql-client-core-5.6
-            - mysql-client-5.6
-      services:
-        - mysql
-        - postgresql
-      env: DISABLE_FUNCTIONS=
   allow_failures:
     - php: "hhvm-3.24"
     - php: "nightly"
